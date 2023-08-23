@@ -1,0 +1,9 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+.delete {
+  display: none;
+}
