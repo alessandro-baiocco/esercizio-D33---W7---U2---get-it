@@ -36,6 +36,7 @@ fetch("https://striveschool-api.herokuapp.com/books")
     allCardBtsEl.forEach((cardbtn, index) => {
       cardbtn.addEventListener("click", () => {
         allCards[index].classList.add("d-none");
+        localStorage.setItem(`articoli`, `${carello.innerHTML}`);
       });
     });
     //-----------------------------------------------addEventListener2
@@ -43,7 +44,7 @@ fetch("https://striveschool-api.herokuapp.com/books")
       cardbtn.addEventListener("click", () => {
         let ordineLibro = document.createElement("li");
         ordineLibro.innerHTML = `${allTitle[index].innerText} price: ${allPrice[index].innerText}
-        <button class = "togliDalCarello" onclick = "noCarello()">X</button>`;
+        <button class = "togliDalCarello" >X</button>`;
         carello.appendChild(ordineLibro);
         localStorage.setItem(`articoli`, `${carello.innerHTML}`);
       });
@@ -52,12 +53,10 @@ fetch("https://striveschool-api.herokuapp.com/books")
 const articoli = () => {
   croceCarello = document.querySelectorAll("nav div ul li button");
   articoliCarello = document.querySelectorAll("nav div ul li ");
-};
-
-const noCarello = () => {
   croceCarello.forEach((cardbtn, index) => {
     cardbtn.addEventListener("click", () => {
       articoliCarello[index].classList.add("d-none");
+      localStorage.setItem(`articoli`, `${carello.innerHTML}`);
     });
   });
 };
